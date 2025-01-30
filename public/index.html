@@ -11,13 +11,55 @@
     <meta property="og:description" content="View Jayakrishnan K P's design portfolio. Includes detailed projects, 3D modeling, renderings, and shop drawings.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="http://jayakrishnan-portfolio.vercel.app"> <!-- Replace with your actual page URL -->
-
     <meta name="robots" content="index,follow">
+    <style>
+        #message-container {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+        }
+    </style>
     <script>
-        window.location.href = "https://raw.githubusercontent.com/kuttydevil/portfolio/refs/heads/main/jk-portfolio.pdf";
+        function initiateDownloadAndClose() {
+            var messageContainer = document.getElementById('message-container');
+            messageContainer.style.display = 'block';
+
+            var downloadUrl = "https://raw.githubusercontent.com/kuttydevil/portfolio/refs/heads/main/jk-portfolio.pdf";
+
+          // Check if the download started using the `download` attribute
+         var downloadLink = document.createElement('a');
+        downloadLink.href = downloadUrl;
+        downloadLink.download = 'Jayakrishnan_KP_Portfolio.pdf'; // Set the filename for the download
+
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+        document.body.removeChild(downloadLink);
+
+
+        setTimeout(function() {
+               window.close();
+                }, 2000);
+
+
+        }
+     window.onload = function(){
+         initiateDownloadAndClose();
+     }
+
     </script>
 </head>
 <body>
-    <p>If you are not redirected, <a href="https://raw.githubusercontent.com/kuttydevil/portfolio/refs/heads/main/jk-portfolio.pdf">click here</a>.</p>
+    <div id="message-container">
+        <p>Downloading portfolio...</p>
+         <p>Tab will close shortly.</p>
+    </div>
+    <p>If you are not redirected, <a href="https://raw.githubusercontent.com/kuttydevil/portfolio/refs/heads/main/jk-portfolio.pdf" download="Jayakrishnan_KP_Portfolio.pdf">click here</a>.</p>
 </body>
 </html>
